@@ -1,0 +1,60 @@
+@import "_variables";
+@import "mixins";
+@import "search";
+@import "forecast";
+@import "currentWeather";
+@import "header";
+
+body {
+  margin: 0;
+  display: flex;
+
+  justify-content: center;
+  /*  background-image: linear-gradient(140deg, rgb(35, 214, 148),
+      rgb(35, 190, 214)); */
+  background-image: url("../images/Cloud-background-HD.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  color: rgb(33, 33, 33);
+  font-family: 'Poppins', sans-serif;
+
+  #root {
+    width: 100%;
+
+    /* nav {
+      @include flex-row;
+      margin: 1rem;
+      top: 0;
+
+
+      .logo {
+
+        h1 {
+          margin: 0;
+          @include font-bold;
+        }
+      }
+
+      a {
+        color: rgb(33, 33, 33);
+        text-decoration: none;
+        margin: 1rem;
+
+        &:hover {
+          color: rgb(59, 58, 58);
+          text-decoration: underline;
+          text-underline-offset: 0.3rem;
+
+        }
+
+
+      }
+    } */
+
+    .main-content {
+      @include flex-column;
+    }
+  }
+}

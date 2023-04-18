@@ -1,0 +1,230 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 1rem;
+  padding-left: 1.5rem;
+}
+form input {
+  background-color: rgba(240, 248, 255, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  width: 30vw;
+  margin: 0.5rem;
+  outline: none;
+}
+form button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+form button .material-symbols-outlined {
+  background-color: rgba(240, 248, 255, 0.852);
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  text-decoration: none;
+}
+form button .material-symbols-outlined:hover {
+  background-color: rgba(189, 196, 202, 0.407);
+  transition: all 0.1s ease;
+  box-shadow: 0px 5px 5px rgba(84, 84, 84, 0.233);
+}
+form button .material-symbols-outlined:active {
+  background-color: rgba(206, 213, 220, 0.407);
+  transition: all 0.1s ease;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.398);
+}
+
+.forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  border-radius: 0.5rem;
+  border: none;
+  margin: 3rem;
+  padding: 1rem;
+  width: 60vw;
+  height: 35vh;
+}
+.forecast h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.forecast .forecast-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.forecast .forecast-preview .forcast-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  border-radius: 0.5rem;
+  border: none;
+  width: 10vw;
+  height: 25vh;
+  margin: 0.5rem;
+}
+.forecast .forecast-preview .forcast-card:hover {
+  background-color: rgba(220, 226, 232, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+}
+.forecast .forecast-preview .forcast-card .weather-details-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: rgb(33, 33, 33);
+}
+.forecast .forecast-preview .forcast-card .weather-details-link h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.forecast .forecast-preview .forcast-card .weather-details-link p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.this-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  border-radius: 0.5rem;
+  border: none;
+  width: 20vw;
+  border-radius: 1rem;
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+  margin: 3rem;
+}
+.this-weather:hover {
+  background-color: rgba(220, 226, 232, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+}
+.this-weather .location-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.this-weather .location-date h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 1rem 0rem 0rem 0rem;
+  font-size: 2rem;
+}
+.this-weather .location-date h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  /* font-style: italic; */
+  margin: 0;
+  font-size: 0.8rem;
+}
+.this-weather .temp h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 4rem;
+  margin: 0rem 0rem 1rem 0rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 1rem;
+  top: 0;
+}
+nav .logo h1 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+nav .menu .menu-link {
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+  margin: 1rem;
+}
+nav .menu .menu-link:hover {
+  color: rgb(59, 58, 58);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  /*  background-image: linear-gradient(140deg, rgb(35, 214, 148),
+      rgb(35, 190, 214)); */
+  background-image: url("../images/Cloud-background-HD.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  color: rgb(33, 33, 33);
+  font-family: "Poppins", sans-serif;
+}
+body #root {
+  width: 100%;
+  /* nav {
+    @include flex-row;
+    margin: 1rem;
+    top: 0;
+
+
+    .logo {
+
+      h1 {
+        margin: 0;
+        @include font-bold;
+      }
+    }
+
+    a {
+      color: rgb(33, 33, 33);
+      text-decoration: none;
+      margin: 1rem;
+
+      &:hover {
+        color: rgb(59, 58, 58);
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+
+      }
+
+
+    }
+  } */
+}
+body #root .main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}/*# sourceMappingURL=App.css.map */

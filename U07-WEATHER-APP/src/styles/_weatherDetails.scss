@@ -1,0 +1,6 @@
+.weather-details {
+    @include flex-column;
+    @include container;
+    width: 50vw;
+    height: 30vh;
+}

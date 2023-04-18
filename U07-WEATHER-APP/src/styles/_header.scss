@@ -1,0 +1,33 @@
+nav {
+    @include flex-row;
+    margin: 1rem;
+    top: 0;
+
+
+    .logo {
+
+        h1 {
+            margin: 0;
+            @include font-bold;
+        }
+    }
+
+    .menu {
+        @include flex-row;
+
+        .menu-link {
+            color: rgb(33, 33, 33);
+            text-decoration: none;
+            margin: 1rem;
+
+            &:hover {
+                color: rgb(59, 58, 58);
+                text-decoration: underline;
+                text-underline-offset: 0.3rem;
+
+            }
+
+
+        }
+    }
+}
