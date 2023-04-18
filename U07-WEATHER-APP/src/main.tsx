@@ -13,6 +13,7 @@ const router = createBrowserRouter([
       <>
         <Header></Header>
         <section className="main-content">
+          <App></App>
           <Outlet></Outlet>
           <WorldWeather></WorldWeather>
         </section>

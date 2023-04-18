@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { dateBuilder } from "../../dateFunc";
 import { useState, useEffect } from "react";
-import dotenv from "dotenv";
 
 export const CurrentWeather = () => {
   const apiUrlConfig = "https://api.openweathermap.org/data/2.5/";
@@ -9,6 +8,8 @@ export const CurrentWeather = () => {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [status, setStatus] = useState("");
+  const [city, setCity] = useState("");
+  const [temperature, setTemperature] = useState("");
   const apiUrl = `${apiUrlConfig}weather?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
 
   console.log(apiUrl);
@@ -31,22 +32,33 @@ export const CurrentWeather = () => {
         }
       );
     };
+    const getCityName = async () => {
+      try {
+        const response = await fetch(
+          `${apiUrlConfig}weather?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
+        );
+        const data = await response.json();
+        setCity(data.name);
+        setTemperature(Math.round(data.main.temp).toString());
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     getLocation();
-  }, []);
+    getCityName();
+  }, [lat, lng]);
 
   return (
     <>
       <Link to="/weather-details" className="this-weather">
         <div className="location-date">
           {status ? <p>Status: {status}</p> : <></>}
-          <p>Latitude: {lat}</p>
-          <p>Longitude: {lng}</p>
-          <h2>Stockholm</h2>
+          <h2 className="city">{city}</h2>
           <h3>{dateBuilder(new Date())}</h3>
         </div>
         <div className="temp">
-          <h2>16C</h2>
+          <h2>{temperature}&#176;C</h2>
         </div>
       </Link>
     </>
