@@ -1,10 +1,9 @@
 form {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
   margin: 1rem;
-  padding-left: 1.5rem;
 }
 form input {
   background-color: rgba(240, 248, 255, 0.418);
@@ -16,13 +15,21 @@ form input {
   margin: 0.5rem;
   outline: none;
 }
+form input:hover {
+  background-color: rgba(240, 248, 255, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
+}
+form input:focus {
+  background-color: rgba(240, 248, 255, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.474);
+}
 form button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 form button .material-symbols-outlined {
-  background-color: rgba(240, 248, 255, 0.852);
+  background-color: rgba(240, 248, 255, 0.418);
   font-size: 1rem;
   padding: 0.3rem 0.5rem 0.3rem 0.5rem;
   border-radius: 0.5rem;
@@ -31,14 +38,12 @@ form button .material-symbols-outlined {
   text-decoration: none;
 }
 form button .material-symbols-outlined:hover {
-  background-color: rgba(189, 196, 202, 0.407);
-  transition: all 0.1s ease;
-  box-shadow: 0px 5px 5px rgba(84, 84, 84, 0.233);
+  background-color: rgba(240, 248, 255, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
 }
 form button .material-symbols-outlined:active {
-  background-color: rgba(206, 213, 220, 0.407);
-  transition: all 0.1s ease;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.398);
+  background-color: rgba(240, 248, 255, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.474);
 }
 
 .forecast {
@@ -62,7 +67,7 @@ form button .material-symbols-outlined:active {
 .forecast .forecast-preview {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
 }
 .forecast .forecast-preview .forcast-card {
@@ -149,31 +154,47 @@ form button .material-symbols-outlined:active {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
   margin: 1rem;
   top: 0;
 }
-nav .logo h1 {
+nav .logo a {
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
+  text-decoration: none;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
+  font-size: 2rem;
+  color: white;
+}
+nav .logo a:hover {
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.667);
+}
+nav .logo a img {
+  width: 2rem;
 }
 nav .menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
 }
 nav .menu .menu-link {
   color: rgb(33, 33, 33);
   text-decoration: none;
   margin: 1rem;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(rgba(180, 232, 241, 0.5), rgba(180, 232, 241, 0.5));
+  background-repeat: no-repeat;
+  transition: background-size 0.3s, 0.3s;
+  background-size: 0% 110%;
+  background-position: 0% 50%;
 }
 nav .menu .menu-link:hover {
   color: rgb(59, 58, 58);
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  background-size: 100% 100%;
 }
 
 body {

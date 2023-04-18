@@ -4,6 +4,7 @@ import "./styles/App.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { WeatherDetails } from "./components/WeatherDetails/WeatherDetails";
+import { WorldWeather } from "./components/WorldWeather/WorldWeather";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
         <Header></Header>
         <section className="main-content">
           <Outlet></Outlet>
+          <WorldWeather></WorldWeather>
         </section>
       </>
     ),

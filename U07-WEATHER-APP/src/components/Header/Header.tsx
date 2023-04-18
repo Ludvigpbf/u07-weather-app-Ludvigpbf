@@ -5,13 +5,15 @@ export const Header = () => {
   return (
     <nav>
       <div className="logo">
-        <h1>WeatherMate</h1>
+        <Link to="app" className="menu-link">
+          WeatherMate <img src="src/images/Group 13.png" alt="logo" />
+        </Link>
       </div>
       <Search></Search>
       <div className="menu">
         <Link to="app" className="menu-link">
           Home
-        </Link>{" "}
+        </Link>
         <Link to="about" className="menu-link">
           About
         </Link>
