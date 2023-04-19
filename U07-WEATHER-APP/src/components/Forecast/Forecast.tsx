@@ -23,7 +23,6 @@ export const Forecast = () => {
             <Link to="/weather-details" className="weather-details-link">
               <h2>{data.city.name}</h2>
               <h3>{forecast.dt_txt}</h3>
-              <img src="" alt="" />
               <p>{forecast.main.temp}&#176;C</p>
             </Link>
           </div>
