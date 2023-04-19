@@ -149,6 +149,12 @@ form button .material-symbols-outlined:active {
   font-weight: 300;
   font-size: 4rem;
   margin: 0rem 0rem 1rem 0rem;
+  text-align: center;
+}
+.this-weather .temp p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
 }
 
 nav {
