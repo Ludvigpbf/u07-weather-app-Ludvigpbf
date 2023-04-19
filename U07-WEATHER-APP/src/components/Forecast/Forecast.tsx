@@ -6,9 +6,9 @@ import { useLocation } from "../../hooks/useLocation";
 import { useForecast } from "../../hooks/useForecast";
 
 export const Forecast = () => {
-  const apiUrlConfig = "https://api.openweathermap.org/data/2.5/";
+  const apiUrlConfig = import.meta.env.VITE_API_URL;
   const { lat, lng, status } = useLocation();
-  const apiKey = "f284c39dcce2f6b3cb3d8a9e6f963d5d";
+  const apiKey = import.meta.env.VITE_API_KEY;
   const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
   const { data } = useForecast(apiUrlForecast);
 
