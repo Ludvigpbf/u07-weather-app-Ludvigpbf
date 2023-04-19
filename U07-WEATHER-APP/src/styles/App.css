@@ -115,7 +115,7 @@ form button .material-symbols-outlined:active {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
   border-radius: 0.5rem;
   border: none;
-  width: 20vw;
+  width: 50vw;
   border-radius: 1rem;
   color: rgb(33, 33, 33);
   text-decoration: none;
@@ -125,36 +125,72 @@ form button .material-symbols-outlined:active {
   background-color: rgba(220, 226, 232, 0.418);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
 }
-.this-weather .location-date {
+.this-weather .main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+  margin: 1rem;
+  justify-content: space-around;
+}
+.this-weather .main-info .location-date {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.this-weather .location-date h2 {
+.this-weather .main-info .location-date h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0rem;
   font-size: 2rem;
 }
-.this-weather .location-date h3 {
+.this-weather .main-info .location-date h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   /* font-style: italic; */
   margin: 0;
   font-size: 0.8rem;
 }
-.this-weather .temp h2 {
+.this-weather .main-info .main-temp #current-temp {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 4rem;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem;
   text-align: center;
 }
-.this-weather .temp p {
+.this-weather .extra-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+}
+.this-weather .extra-info .column {
+  width: 100%;
+  margin: 1rem;
+}
+.this-weather .extra-info .column .data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.this-weather .extra-info .column .data-row .description {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 0.8rem;
+  margin: 0.5rem;
+}
+.this-weather .extra-info .column .data-row .data {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.this-weather .extra-info .column hr {
+  margin: 0rem;
 }
 
 nav {

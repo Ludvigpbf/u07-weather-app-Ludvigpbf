@@ -1,7 +1,7 @@
 .this-weather {
     @include flex-column;
     @include container;
-    width: 20vw;
+    width: 50vw;
     border-radius: 1rem;
     color: rgb(33, 33, 33);
     text-decoration: none;
@@ -12,37 +12,69 @@
         box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
     }
 
-    .location-date {
-        @include flex-column;
+    .main-info {
+        @include flex-row;
+        width: 100%;
+        margin: 1rem;
+        justify-content: space-around;
+
+        .location-date {
+            @include flex-column;
 
 
-        h2 {
-            @include font-regular;
-            margin: 1rem 0rem 0rem 0rem;
-            font-size: 2rem;
+            h2 {
+                @include font-regular;
+                margin: 0rem;
+                font-size: 2rem;
+
+            }
+
+            h3 {
+                @include font-light;
+                /* font-style: italic; */
+                margin: 0;
+                font-size: 0.8rem
+            }
 
         }
 
-        h3 {
-            @include font-light;
-            /* font-style: italic; */
-            margin: 0;
-            font-size: 0.8rem
+        .main-temp {
+            #current-temp {
+                @include font-light;
+                font-size: 4rem;
+                margin: 0rem;
+                text-align: center;
+            }
         }
-
     }
 
-    .temp {
-        h2 {
-            @include font-light;
-            font-size: 4rem;
-            margin: 0rem 0rem 1rem 0rem;
-            text-align: center;
-        }
+    .extra-info {
+        @include flex-row;
+        width: 100%;
 
-        p {
-            @include font-light;
-            font-size: 0.8rem;
+        .column {
+            width: 100%;
+            margin: 1rem;
+
+            .data-row {
+                @include flex-row;
+                justify-content: space-between;
+
+                .description {
+                    @include font-light;
+                    font-size: 0.8rem;
+                    margin: 0.5rem;
+                }
+
+                .data {
+                    @include font-regular;
+                    font-size: 0.8rem;
+                }
+            }
+
+            hr {
+                margin: 0rem;
+            }
         }
     }
 }

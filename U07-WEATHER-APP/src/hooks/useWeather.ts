@@ -10,6 +10,8 @@ export const useWeather = (apiUrl: string) => {
     sunrise: "",
     sunset: "",
     windSpeed: "",
+    rain: "",
+    visibility: 0,
   });
 
   useEffect(() => {
@@ -20,6 +22,7 @@ export const useWeather = (apiUrl: string) => {
         if (data.main) {
           const sunriseTime = new Date(data.sys.sunrise * 1000);
           const sunsetTime = new Date(data.sys.sunset * 1000);
+          const visibilityInKm = data.visibility / 1000;
           setWeatherData({
             city: data.name,
             temperature: Math.round(data.main.temp).toString(),
@@ -29,6 +32,8 @@ export const useWeather = (apiUrl: string) => {
             sunrise: `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`,
             sunset: `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`,
             windSpeed: data.wind.speed,
+            rain: data.rain?.["1h"] ?? 0,
+            visibility: visibilityInKm,
           });
         }
         console.log(data);

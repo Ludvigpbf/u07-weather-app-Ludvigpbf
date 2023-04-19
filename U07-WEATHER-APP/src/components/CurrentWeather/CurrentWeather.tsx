@@ -11,7 +11,6 @@ export const CurrentWeather = () => {
   const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
 
   const weatherData = useWeather(apiUrlWeather);
-  const forecastData = useWeather(apiUrlForecast);
 
   console.log(apiUrlWeather);
   console.log(apiUrlForecast);
@@ -19,19 +18,59 @@ export const CurrentWeather = () => {
   return (
     <>
       <Link to="/weather-details" className="this-weather">
-        <div className="location-date">
-          {status ? <p>Status: {status}</p> : <></>}
-          <h2 className="city">{weatherData.city}</h2>
-          <h3>{dateBuilder(new Date())}</h3>
+        <div className="main-info">
+          <div className="location-date">
+            {status ? <p>Status: {status}</p> : <></>}
+            <h2 className="city">{weatherData.city}</h2>
+            <h3>{dateBuilder(new Date())}</h3>
+          </div>
+          <div className="main-temp">
+            <h2 id="current-temp">{weatherData.temperature}&#176;C</h2>
+          </div>
         </div>
-        <div className="temp">
-          <h2>{weatherData.temperature}&#176;C</h2>
-          <p>Feels like: {weatherData.feelsLike}&#176;C</p>
-          <p>Weather: {weatherData.weather}</p>
-          <p>Humidity: {weatherData.humidity}%</p>
-          <p>Sunrise: {weatherData.sunrise}</p>
-          <p>Sunset: {weatherData.sunset}</p>
-          <p>Wind: {weatherData.windSpeed} m/s</p>
+        <div className="extra-info">
+          <div className="column">
+            <div className="data-row">
+              <p className="description">Feels like:</p>
+              <p className="data">{weatherData.feelsLike}&#176;C</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Weather:</p>
+              <p className="data">{weatherData.weather}</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Humidity:</p>
+              <p className="data">{weatherData.humidity}%</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Visibility:</p>
+              <p className="data">{weatherData.visibility}km</p>
+            </div>
+          </div>
+          <div className="column">
+            <div className="data-row">
+              <p className="description">Sunrise:</p>
+              <p className="data">{weatherData.sunrise}</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Sunset:</p>
+              <p className="data">{weatherData.sunset}</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Wind:</p>
+              <p className="data">{weatherData.windSpeed} m/s</p>
+            </div>
+            <hr />
+            <div className="data-row">
+              <p className="description">Rain:</p>
+              <p className="data">{weatherData.rain} mm/1h</p>
+            </div>
+          </div>
         </div>
       </Link>
     </>
