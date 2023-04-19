@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ForecastData } from "../../types/types";
+import { ForecastData } from "../../interfaces/interfaces";
 
 import { useLocation } from "../../hooks/useLocation";
 import { useForecast } from "../../hooks/useForecast";

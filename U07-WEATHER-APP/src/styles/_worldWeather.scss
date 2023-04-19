@@ -7,7 +7,7 @@
         width: 10vw;
         height: 25vh;
         margin: 0.5rem;
-
+        padding: 1rem;
 
         &:hover {
             background-color: rgba(220, 226, 232, 0.418);
@@ -21,12 +21,22 @@
             height: 100%;
             color: rgb(33, 33, 33);
 
+
+            h2 {
+                @include font-bold;
+                margin: 0;
+            }
+
             h3 {
                 @include font-light;
+                margin: 0;
+                font-size: 0.7rem;
             }
 
             p {
                 @include font-light;
+                margin: 0;
+                font-size: 1rem;
             }
         }
     }

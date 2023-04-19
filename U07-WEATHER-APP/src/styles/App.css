@@ -221,6 +221,7 @@ nav .menu .menu-link:hover {
   width: 10vw;
   height: 25vh;
   margin: 0.5rem;
+  padding: 1rem;
 }
 .world-weather-container .world-weather-card:hover {
   background-color: rgba(220, 226, 232, 0.418);
@@ -236,13 +237,22 @@ nav .menu .menu-link:hover {
   height: 100%;
   color: rgb(33, 33, 33);
 }
+.world-weather-container .world-weather-card .weather-details-link h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  margin: 0;
+}
 .world-weather-container .world-weather-card .weather-details-link h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+  margin: 0;
+  font-size: 0.7rem;
 }
 .world-weather-container .world-weather-card .weather-details-link p {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+  margin: 0;
+  font-size: 1rem;
 }
 
 body {

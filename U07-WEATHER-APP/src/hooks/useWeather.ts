@@ -6,6 +6,10 @@ export const useWeather = (apiUrl: string) => {
     temperature: "",
     feelsLike: "",
     weather: "",
+    humidity: "",
+    sunrise: "",
+    sunset: "",
+    windSpeed: "",
   });
 
   useEffect(() => {
@@ -14,11 +18,17 @@ export const useWeather = (apiUrl: string) => {
         const response = await fetch(apiUrl);
         const data = await response.json();
         if (data.main) {
+          const sunriseTime = new Date(data.sys.sunrise * 1000);
+          const sunsetTime = new Date(data.sys.sunset * 1000);
           setWeatherData({
             city: data.name,
             temperature: Math.round(data.main.temp).toString(),
             feelsLike: Math.round(data.main.feels_like).toString(),
             weather: data.weather[0].description,
+            humidity: data.main.humidity,
+            sunrise: `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`,
+            sunset: `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`,
+            windSpeed: data.wind.speed,
           });
         }
         console.log(data);

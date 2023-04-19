@@ -1,18 +1,5 @@
 export const dateBuilder = (d: Date) => {
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  let months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
   let days = [
     "Sunday",
     "Monday",
@@ -26,7 +13,6 @@ export const dateBuilder = (d: Date) => {
   let day = days[d.getDay()];
   let date = d.getDate();
   let month = months[d.getMonth()];
-  let year = d.getFullYear();
 
-  return `${day} ${date} ${month} ${year}`;
+  return `${day} ${date}/${month}`;
 };

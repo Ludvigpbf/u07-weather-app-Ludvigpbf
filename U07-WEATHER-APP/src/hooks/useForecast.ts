@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ForecastData } from "./../types/types";
+import { ForecastData } from "../interfaces/interfaces";
 
 export const useForecast = (apiUrl: string): { data: ForecastData } => {
   const [data, setData] = useState<ForecastData>({

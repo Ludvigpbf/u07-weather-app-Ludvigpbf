@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { dateBuilder } from "../../dateFunc";
-import { useState, useEffect } from "react";
 import { useLocation } from "../../hooks/useLocation";
 import { useWeather } from "../../hooks/useWeather";
 
@@ -29,6 +28,10 @@ export const CurrentWeather = () => {
           <h2>{weatherData.temperature}&#176;C</h2>
           <p>Feels like: {weatherData.feelsLike}&#176;C</p>
           <p>Weather: {weatherData.weather}</p>
+          <p>Humidity: {weatherData.humidity}%</p>
+          <p>Sunrise: {weatherData.sunrise}</p>
+          <p>Sunset: {weatherData.sunset}</p>
+          <p>Wind: {weatherData.windSpeed} m/s</p>
         </div>
       </Link>
     </>
