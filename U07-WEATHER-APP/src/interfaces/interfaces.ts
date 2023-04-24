@@ -4,6 +4,7 @@ export interface ForecastData {
     country: string;
   };
   list: {
+    time: any;
     dt: number;
     dt_txt: string;
     main: {

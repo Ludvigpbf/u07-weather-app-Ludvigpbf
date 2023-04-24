@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { useLocation } from "../../hooks/useLocation";
 import { useForecast } from "../../hooks/useForecast";
-
 import { ForecastData } from "../../interfaces/interfaces";
 
 export const Forecast = () => {
@@ -15,14 +13,25 @@ export const Forecast = () => {
   const groupedData: { [key: string]: ForecastData["list"] } = {};
 
   data.list.forEach((item) => {
-    const date = item.dt_txt.split(" ")[0];
+    const date = getCurrentDate(item.dt_txt.split(" ")[0]);
+    const time = getCurrentTime(item.dt_txt.split(" ")[1]);
     if (!groupedData[date]) {
       groupedData[date] = [];
     }
-    groupedData[date].push(item);
+    groupedData[date].push({ ...item, time });
   });
 
-  console.log(data);
+  function getCurrentDate(date: string) {
+    const d = new Date(date);
+    const month = (d.getMonth() + 1).toString();
+    const todaysDate = d.getDate().toString().padStart(2, "0");
+    return `${todaysDate}/${month}`;
+  }
+
+  function getCurrentTime(time: string) {
+    const [hours, minutes] = time.split(":");
+    return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
+  }
 
   return (
     <div className="forecast">
@@ -30,17 +39,18 @@ export const Forecast = () => {
       <div className="forecast-preview">
         {Object.entries(groupedData).map(([date, forecasts]) => (
           <div className="forecast-card" key={date}>
-            <h2>{data.city.name}</h2>
-            <h3>{date}</h3>
-            {forecasts.map((forecast) => (
-              <Link
-                to="/weather-details"
-                className="weather-details-link"
-                key={forecast.dt}
-              >
-                <p>{forecast.main.temp}&#176;C</p>
-              </Link>
-            ))}
+            <Link to="/weather-details" className="weather-details-link">
+              <h2>{data.city.name}</h2>
+              <h3>{date}</h3>
+
+              {forecasts.map((forecast) => (
+                <div className="forecast-temp" key={forecast.dt}>
+                  <p>{forecast.time}</p>
+                  <span>-</span>
+                  <p>{Math.round(forecast.main.temp)}&#176;C</p>
+                </div>
+              ))}
+            </Link>
           </div>
         ))}
       </div>
