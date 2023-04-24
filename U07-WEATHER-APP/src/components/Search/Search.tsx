@@ -1,35 +1,50 @@
 import React, { useState } from "react";
+import { WeatherData } from "../../interfaces/interfaces";
 
 export const Search = () => {
-  const [query, setQuery] = useState("");
-  const [weather, setWeather] = useState({});
+  const apiUrlConfig = import.meta.env.VITE_API_URL;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
-  const search = (evt: React.KeyboardEvent) => {
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+
+  const useSearchCity = (evt: React.KeyboardEvent) => {
+    evt.preventDefault();
+    const apiUrlSearch = `${apiUrlConfig}weather?q=${query}&appid=${apiKey}`;
+    console.log("apiUrlSearch:", apiUrlSearch);
     if (evt.key === "Enter") {
-      fetch("${api.base}weather?q=${query}&appid=${api.key}&units=metric")
+      console.log(apiUrlSearch);
+      fetch(apiUrlSearch)
         .then((res) => res.json())
-        .then((result) => {
+        .then((result: WeatherData) => {
           setWeather(result);
           setQuery("");
-          console.log(result);
-        });
+          console.log("result:", result);
+        })
+        .catch((error) => console.log("error:", error));
     }
   };
 
   return (
-    <form action="">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Enter a city.."
-        onChange={(e) => setQuery(e.target.value)}
-        value={query}
-        onKeyDown={search}
-      />
-      <button type="submit">
-        <span className="material-symbols-outlined">send</span>
-      </button>
-    </form>
+    <>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Enter a city.."
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+          onKeyDown={useSearchCity}
+        />
+        <button type="submit">
+          <span className="material-symbols-outlined">send</span>
+        </button>
+      </form>
+
+      <div>
+        <p></p>
+      </div>
+    </>
   );
 };

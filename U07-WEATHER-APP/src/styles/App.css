@@ -70,7 +70,7 @@ form button .material-symbols-outlined:active {
   justify-content: space-evenly;
   flex-direction: row;
 }
-.forecast .forecast-preview .forcast-card {
+.forecast .forecast-preview .forecast-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +83,11 @@ form button .material-symbols-outlined:active {
   height: 25vh;
   margin: 0.5rem;
 }
-.forecast .forecast-preview .forcast-card:hover {
+.forecast .forecast-preview .forecast-card:hover {
   background-color: rgba(220, 226, 232, 0.418);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
 }
-.forecast .forecast-preview .forcast-card .weather-details-link {
+.forecast .forecast-preview .forecast-card .weather-details-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,11 +97,11 @@ form button .material-symbols-outlined:active {
   height: 100%;
   color: rgb(33, 33, 33);
 }
-.forecast .forecast-preview .forcast-card .weather-details-link h3 {
+.forecast .forecast-preview .forecast-card .weather-details-link h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
-.forecast .forecast-preview .forcast-card .weather-details-link p {
+.forecast .forecast-preview .forecast-card .weather-details-link p {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 }

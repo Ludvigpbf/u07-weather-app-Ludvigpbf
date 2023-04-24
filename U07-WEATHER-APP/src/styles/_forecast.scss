@@ -13,7 +13,7 @@
     .forecast-preview {
         @include flex-row;
 
-        .forcast-card {
+        .forecast-card {
             @include flex-column;
             @include container;
             width: 10vw;

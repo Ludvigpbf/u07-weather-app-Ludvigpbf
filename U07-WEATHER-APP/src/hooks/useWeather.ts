@@ -36,7 +36,7 @@ export const useWeather = (apiUrl: string) => {
             visibility: visibilityInKm,
           });
         }
-        console.log(data);
+        /*  console.log(data); */
       } catch (error) {
         console.log(error);
       }

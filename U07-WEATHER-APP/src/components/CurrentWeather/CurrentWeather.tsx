@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { dateBuilder } from "../../dateFunc";
+import { useCurrentTime } from "../../dateFunc";
 import { useLocation } from "../../hooks/useLocation";
 import { useWeather } from "../../hooks/useWeather";
 
@@ -11,6 +11,7 @@ export const CurrentWeather = () => {
   const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
 
   const weatherData = useWeather(apiUrlWeather);
+  const { time, day, date } = useCurrentTime();
 
   console.log(apiUrlWeather);
   console.log(apiUrlForecast);
@@ -22,7 +23,7 @@ export const CurrentWeather = () => {
           <div className="location-date">
             {status ? <p>Status: {status}</p> : <></>}
             <h2 className="city">{weatherData.city}</h2>
-            <h3>{dateBuilder(new Date())}</h3>
+            <h3>{`${day} ${date} ${time}`}</h3>
           </div>
           <div className="main-temp">
             <h2 id="current-temp">{weatherData.temperature}&#176;C</h2>

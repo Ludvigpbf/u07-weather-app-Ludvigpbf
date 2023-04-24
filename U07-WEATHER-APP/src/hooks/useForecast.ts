@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { ForecastData } from "../interfaces/interfaces";
 
-export const useForecast = (apiUrl: string): { data: ForecastData } => {
+export const useForecast = (
+  apiUrl: string,
+  status: string
+): { data: ForecastData } => {
   const [data, setData] = useState<ForecastData>({
     city: { name: "", country: "" },
     list: [],
