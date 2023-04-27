@@ -5,13 +5,13 @@ export const Header = () => {
   return (
     <nav>
       <div className="logo">
-        <Link to="app" className="menu-link">
+        <Link to="/" className="menu-link">
           WeatherMate <img src="src/images/Group 13.png" alt="logo" />
         </Link>
       </div>
       <Search></Search>
       <div className="menu">
-        <Link to="app" className="menu-link">
+        <Link to="/" className="menu-link">
           Home
         </Link>
         <Link to="about" className="menu-link">

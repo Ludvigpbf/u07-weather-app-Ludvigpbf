@@ -42,7 +42,31 @@ form button .material-symbols-outlined:hover {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
 }
 form button .material-symbols-outlined:active {
+  background-color: rgba(211, 218, 225, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.474);
+}
+
+.toggle-button button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  background-color: rgba(240, 248, 255, 0.418);
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  text-decoration: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+.toggle-button button:hover {
   background-color: rgba(240, 248, 255, 0.758);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
+}
+.toggle-button button:active {
+  background-color: rgba(211, 218, 225, 0.758);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.474);
 }
 
@@ -57,7 +81,7 @@ form button .material-symbols-outlined:active {
   border: none;
   margin: 3rem;
   padding: 1rem;
-  width: 60vw;
+  width: 80vw;
   height: 50vh;
 }
 .forecast h1 {
@@ -79,7 +103,7 @@ form button .material-symbols-outlined:active {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
   border-radius: 0.5rem;
   border: none;
-  width: 10vw;
+  width: 15vw;
   height: 40vh;
   margin: 0.5rem;
 }
@@ -111,7 +135,23 @@ form button .material-symbols-outlined:active {
   font-size: 1rem;
   margin: 0;
 }
-.forecast .forecast-preview .forecast-card .weather-details-link .forecast-temp {
+.forecast .forecast-preview .forecast-card .weather-details-link .forecast-descriptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.forecast .forecast-preview .forecast-card .weather-details-link .forecast-descriptions h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  margin: 0;
+  text-decoration: underline;
+  width: 2rem;
+}
+.forecast .forecast-preview .forecast-card .weather-details-link .forecast-info {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -120,14 +160,21 @@ form button .material-symbols-outlined:active {
   width: 100%;
   height: 1.2rem;
   color: rgb(33, 33, 33);
+  margin: 0.2rem;
 }
-.forecast .forecast-preview .forecast-card .weather-details-link .forecast-temp p {
+.forecast .forecast-preview .forecast-card .weather-details-link .forecast-info p {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 0.6rem;
   margin: 0;
   text-align: center;
   width: 2rem;
+}
+.forecast .forecast-preview .forecast-card .weather-details-link .forecast-info img {
+  background-color: rgba(109, 109, 109, 0.24);
+  border-radius: 0.5rem;
+  width: 1.5rem;
+  padding: 0rem;
 }
 
 .this-weather {
@@ -144,10 +191,6 @@ form button .material-symbols-outlined:active {
   color: rgb(33, 33, 33);
   text-decoration: none;
   margin: 3rem;
-}
-.this-weather:hover {
-  background-color: rgba(220, 226, 232, 0.418);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
 }
 .this-weather .main-info {
   display: flex;
@@ -177,12 +220,34 @@ form button .material-symbols-outlined:active {
   margin: 0;
   font-size: 0.8rem;
 }
+.this-weather .main-info .main-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.this-weather .main-info .main-temp img {
+  background-color: rgba(109, 109, 109, 0.24);
+  border-radius: 1rem;
+}
 .this-weather .main-info .main-temp #current-temp {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 4rem;
   margin: 0rem;
   text-align: center;
+}
+.this-weather .main-info .main-temp .max-min-temp {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.this-weather .main-info .main-temp .max-min-temp p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  margin: 1rem;
+  font-size: 0.8rem;
 }
 .this-weather .extra-info {
   display: flex;
@@ -215,6 +280,50 @@ form button .material-symbols-outlined:active {
 }
 .this-weather .extra-info .column hr {
   margin: 0rem;
+  border: 1px solid rgb(0, 0, 0);
+}
+.this-weather .forecast-section .forecast-current-day-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.this-weather .forecast-section .forecast-current-day-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  text-decoration: underline;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day table {
+  margin: 0rem 1rem 1rem 1rem;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day table thead tr th {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day table tbody tr td {
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day table tbody tr td img {
+  background-color: rgba(109, 109, 109, 0.24);
+  border-radius: 0.6rem;
+  width: 1.8rem;
+}
+.this-weather .forecast-section .forecast-current-day-card .forecast-current-day table tbody tr td hr {
+  border: 1px solid rgb(0, 0, 0);
+  margin: 0;
 }
 
 nav {
@@ -307,6 +416,10 @@ nav .menu .menu-link:hover {
   font-weight: 300;
   margin: 0;
   font-size: 0.7rem;
+}
+.world-weather-container .world-weather-card .weather-details-link img {
+  background-color: rgba(109, 109, 109, 0.24);
+  border-radius: 1rem;
 }
 .world-weather-container .world-weather-card .weather-details-link p {
   font-family: "Poppins", sans-serif;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const useSearchCity = (evt: React.KeyboardEvent) => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;

@@ -33,6 +33,11 @@
                 font-size: 0.7rem;
             }
 
+            img {
+                background-color: rgba(109, 109, 109, 0.24);
+                border-radius: 1rem;
+            }
+
             p {
                 @include font-light;
                 margin: 0;

@@ -1,24 +1,32 @@
 import { Link } from "react-router-dom";
-import { useCurrentTime } from "../../dateFunc";
+import { useCurrentTime } from "../../store/dateFunc";
 import { useLocation } from "../../hooks/useLocation";
-import { useWeather } from "../../hooks/useWeather";
+import { useWeather } from "../../hooks/useCurrentWeather";
+import { useForecast } from "../../hooks/useForecast";
+import React, { useState } from "react";
 
 export const CurrentWeather = () => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;
   const apiKey = import.meta.env.VITE_API_KEY;
   const { lat, lng, status } = useLocation();
-  const apiUrlWeather = `${apiUrlConfig}weather?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
-  const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
+  const [unit, setUnit] = useState("metric");
+  const apiUrlWeatherMetric = `${apiUrlConfig}weather?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
+  const apiUrlForecastMetric = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
 
-  const weatherData = useWeather(apiUrlWeather);
+  const weatherData = useWeather(apiUrlWeatherMetric);
+  const forecastData = useForecast(apiUrlForecastMetric);
+  const today = new Date().toISOString().slice(0, 10);
+
+  const todayForecastData = forecastData.data.list.filter(
+    (forecast) => forecast.dt_txt.slice(0, 10) === today
+  );
+
+  console.log(todayForecastData);
   const { time, day, date } = useCurrentTime();
-
-  console.log(apiUrlWeather);
-  console.log(apiUrlForecast);
 
   return (
     <>
-      <Link to="/weather-details" className="this-weather">
+      <div className="this-weather">
         <div className="main-info">
           <div className="location-date">
             {status ? <p>Status: {status}</p> : <></>}
@@ -26,14 +34,22 @@ export const CurrentWeather = () => {
             <h3>{`${day} ${date} ${time}`}</h3>
           </div>
           <div className="main-temp">
-            <h2 id="current-temp">{weatherData.temperature}&#176;C</h2>
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherData.icon}.png`}
+              alt={weatherData.weather}
+            />
+            <h2 id="current-temp">{weatherData.temperature}°C</h2>
+            <div className="max-min-temp">
+              <p>min: 3°C</p>
+              <p>max: 8°C</p>
+            </div>
           </div>
         </div>
         <div className="extra-info">
           <div className="column">
             <div className="data-row">
               <p className="description">Feels like:</p>
-              <p className="data">{weatherData.feelsLike}&#176;C</p>
+              <p className="data">{weatherData.feelsLike}°C</p>
             </div>
             <hr />
             <div className="data-row">
@@ -73,7 +89,58 @@ export const CurrentWeather = () => {
             </div>
           </div>
         </div>
-      </Link>
+        <div className="forecast-section">
+          {todayForecastData.length > 0 ? (
+            <div className="forecast-current-day-card">
+              <h3>Todays Forecast</h3>
+              <div className="forecast-current-day">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Temp</th>
+                      <th>Weather</th>
+                      <th>Humidity</th>
+                      <th>Wind</th>
+                      <th>Visibility</th>
+                      <th>Rain/3h</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {todayForecastData.map((forecast) => (
+                      <React.Fragment key={forecast.dt}>
+                        <tr>
+                          <td>{forecast.dt_txt.slice(11, 16)}</td>
+                          <td>{Math.round(forecast.main.temp)}°C</td>
+                          <td>
+                            <img
+                              src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
+                              alt={forecast.weather[0].description}
+                            />
+                          </td>
+                          <td>{forecast.main.humidity}%</td>
+                          <td>{Math.round(forecast.wind.speed)} m/s</td>
+                          <td>{forecast.visibility / 1000} km</td>
+                          <td>
+                            {forecast.rain ? `${forecast.rain["3h"]} mm` : "0"}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colSpan={7}>
+                            <hr />
+                          </td>
+                        </tr>
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            <p>No forecast data available for today.</p>
+          )}
+        </div>
+      </div>
     </>
   );
 };

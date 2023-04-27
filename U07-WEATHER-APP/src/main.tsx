@@ -3,19 +3,14 @@ import App from "./App";
 import "./styles/App.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Header } from "./components/Header/Header";
-import { WeatherDetails } from "./components/WeatherDetails/WeatherDetails";
-import { WorldWeather } from "./components/WorldWeather/WorldWeather";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <Header></Header>
         <section className="main-content">
           <App></App>
-          <Outlet></Outlet>
-          <WorldWeather></WorldWeather>
         </section>
       </>
     ),
@@ -27,10 +22,6 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <p>About us..</p>,
-      },
-      {
-        path: "weather-details",
-        element: <WeatherDetails></WeatherDetails>,
       },
     ],
   },
