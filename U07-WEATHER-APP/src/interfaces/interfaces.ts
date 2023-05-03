@@ -1,34 +1,7 @@
-export interface ForecastData {
-  city: {
-    name: string;
-    country: string;
-  };
-  list: {
-    rain: {
-      "3h": number;
-    };
-    sys: any;
-    visibility: any;
-    wind: any;
-    time: any;
-    dt: number;
-    dt_txt: string;
-    main: {
-      temp: number;
-      temp_max: number;
-      temp_min: number;
-      icon: string;
-      humidity: number;
-    };
-    weather: {
-      icon: string;
-      main: string;
-      description: string;
-    }[];
-  }[];
-}
+import { Dispatch, SetStateAction, ComponentProps } from "react";
 
 export interface WeatherData {
+  localTime: string | number | Date;
   coord: {
     lon: number;
     lat: number;
@@ -73,12 +46,84 @@ export interface WeatherData {
     id: number;
     message: number;
     country: string;
-    sunrise: number;
-    sunset: number;
+    sunrise: string;
+    sunset: string;
   };
   timezone: number;
   id: number;
   name: string;
   cod: number;
-  localTime: any;
+  time?: string;
+}
+
+export interface ForecastData {
+  city: {
+    name: string;
+    country: string;
+  };
+  list: {
+    dt: number;
+    main: {
+      temp: number;
+      feels_like: number;
+      temp_min: number;
+      temp_max: number;
+      pressure: number;
+      sea_level: number;
+      grnd_level: number;
+      humidity: number;
+      temp_kf: number;
+    };
+    weather: {
+      id: number;
+      main: string;
+      description: string;
+      icon: string;
+    }[];
+    clouds: {
+      all: number;
+    };
+    wind: {
+      speed: number;
+      deg: number;
+      gust: number;
+    }[];
+    visibility: number;
+    pop: number;
+    rain: {
+      "3h": number;
+    };
+    sys: {
+      pod: string;
+    };
+    dt_txt: string;
+    time?: string;
+  }[];
+}
+
+export interface OutletProps extends ComponentProps<any> {
+  unit: string;
+  setUnit: Dispatch<SetStateAction<string>>;
+  weatherData: WeatherData;
+
+  setWeatherData: Dispatch<SetStateAction<WeatherData>>;
+  forecastData: ForecastData;
+}
+
+export interface AppProps {
+  weatherData: WeatherData;
+  forecastData: ForecastData;
+  unit: string;
+  setUnit: Dispatch<SetStateAction<string>>;
+
+  setWeatherData: Dispatch<SetStateAction<WeatherData>>;
+  toggleUnit: () => void;
+}
+
+export interface HeaderProps {
+  toggleUnit: () => void;
+}
+
+export interface WorldWeatherProps {
+  unit: string;
 }

@@ -1,45 +1,28 @@
 import React, { useState } from "react";
-import { WeatherData } from "../../interfaces/interfaces";
 
-export const Search = () => {
+import { OutletProps } from "../../interfaces/interfaces";
+import { Link } from "react-router-dom";
+
+export const Search = ({
+  unit,
+  setUnit,
+  weatherData,
+  setWeatherData,
+  forecastData,
+  toggleUnit,
+}: OutletProps) => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const [query, setQuery] = useState("");
-  /*  const [weather, setWeather] = useState<WeatherData | null>(null); */
-  const [unit, setUnit] = useState("metric");
-
-  const [weatherData, setWeatherData] = useState({
-    city: "",
-    temperature: 0,
-    feelsLike: "",
-    weather: "",
-    icon: "",
-    humidity: "",
-    sunrise: "",
-    sunset: "",
-    windSpeed: "",
-    rain: "",
-    visibility: "0",
-  });
-
-  const calculateTemperature = (temperature: number) => {
-    return unit === "metric"
-      ? Math.round(temperature)
-      : Math.round((temperature * 9) / 5 + 32);
-  };
-
+  console.log(unit);
   const useSearchCity = async (evt: React.KeyboardEvent | React.FormEvent) => {
     evt.preventDefault();
     const apiUrlSearch = `${apiUrlConfig}weather?q=${query}&units=${unit}&appid=${apiKey}`;
-    console.log("apiUrlSearch:", apiUrlSearch);
-
     try {
       const response = await fetch(apiUrlSearch);
       const data = await response.json();
       if (data.main) {
-        /* setWeather(result); */
-
         const sunriseTime = new Date(data.sys.sunrise * 1000);
         const sunsetTime = new Date(data.sys.sunset * 1000);
         const sunriseHours = sunriseTime.getHours().toString().padStart(2, "0");
@@ -53,7 +36,7 @@ export const Search = () => {
           .toString()
           .padStart(2, "0");
         const visibilityInKm = (data.visibility ?? 0) / 1000;
-        setWeatherData({
+        /* setWeatherData({
           city: data.name,
           temperature: Math.round(data.main.temp),
           feelsLike: Math.round(data.main.feels_like).toString(),
@@ -65,7 +48,8 @@ export const Search = () => {
           rain: (data.rain?.["1h"] ?? 0).toString(),
           visibility: visibilityInKm.toFixed(2),
           icon: data.weather[0].icon,
-        });
+          wind: data.wind.speed,
+        }); */
       }
       setQuery("");
     } catch (error) {
@@ -74,13 +58,14 @@ export const Search = () => {
     console.log(weatherData);
   };
 
-  const toggleUnit = () => {
-    setUnit((prevUnit) => (prevUnit === "metric" ? "imperial" : "metric"));
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    useSearchCity(event);
   };
 
   return (
     <>
-      <form onSubmit={useSearchCity}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="search"
@@ -89,19 +74,19 @@ export const Search = () => {
           onChange={(e) => setQuery(e.target.value)}
           value={query}
         />
-        <button type="submit">
-          <span className="material-symbols-outlined">send</span>
-        </button>
+        <Link to={`/searched-city?query=${query}`}>
+          <button type="submit">
+            <span className="material-symbols-outlined">send</span>
+          </button>
+        </Link>
       </form>
 
       <div className="toggle-button">
-        <button onClick={toggleUnit}>{unit === "metric" ? "°C" : "°F"}</button>
-        <p>
+        <button onClick={toggleUnit}>{unit === "metric" ? "°F" : "°C"}</button>
+        {/* <p>
           {weatherData &&
-            `${calculateTemperature(weatherData.temperature)} ${
-              unit === "metric" ? "°C" : "°F"
-            }`}
-        </p>
+            `${weatherData.main.temp} ${unit === "metric" ? "°C" : "°F"}`}
+        </p> */}
       </div>
     </>
   );

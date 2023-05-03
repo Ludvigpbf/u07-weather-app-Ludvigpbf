@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { Search } from "../Search/Search";
+import { OutletProps } from "../../interfaces/interfaces";
 
-export const Header = () => {
+export const Header = ({
+  unit,
+  setUnit,
+  weatherData,
+  setWeatherData,
+  forecastData,
+  toggleUnit,
+}: OutletProps) => {
+  console.log(unit);
   return (
     <nav>
       <div className="logo">
@@ -9,12 +18,19 @@ export const Header = () => {
           WeatherMate <img src="src/images/Group 13.png" alt="logo" />
         </Link>
       </div>
-      <Search></Search>
+      <Search
+        unit={unit}
+        setUnit={setUnit}
+        weatherData={weatherData}
+        setWeatherData={setWeatherData}
+        forecastData={forecastData}
+        toggleUnit={toggleUnit}
+      ></Search>
       <div className="menu">
         <Link to="/" className="menu-link">
           Home
         </Link>
-        <Link to="about" className="menu-link">
+        <Link to="/about" className="menu-link">
           About
         </Link>
       </div>

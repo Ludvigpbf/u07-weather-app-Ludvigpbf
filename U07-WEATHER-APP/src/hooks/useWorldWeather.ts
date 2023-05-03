@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { WeatherData } from "../interfaces/interfaces";
+import { OutletProps, WeatherData } from "../interfaces/interfaces";
 
-export const useWorldWeather = () => {
+export const useWorldWeather = ({ unit }: OutletProps) => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;
   const apiKey = import.meta.env.VITE_API_KEY;
   const cities = [
@@ -14,13 +14,23 @@ export const useWorldWeather = () => {
   ];
 
   const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
+  const getApiUrlWeather = (city: {
+    name: string;
+    country: string;
+    lat: number;
+    lon: number;
+  }) => {
+    return `${import.meta.env.VITE_API_URL}weather?q=${city.name},${
+      city.country
+    }&units=${unit}&appid=${apiKey}`;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const weatherData = await Promise.all(
           cities.map(async (city) => {
-            const apiUrlWeather = `${apiUrlConfig}weather?q=${city.name},${city.country}&units=metric&appid=${apiKey}`;
+            const apiUrlWeather = getApiUrlWeather(city);
             const response = await fetch(apiUrlWeather);
             const data = await response.json();
             if (data.cod === 200) {
@@ -51,8 +61,8 @@ export const useWorldWeather = () => {
       }
     };
     fetchData();
-  }, []);
-
+  }, [unit]);
+  console.log(unit);
   return weatherData;
 };
 

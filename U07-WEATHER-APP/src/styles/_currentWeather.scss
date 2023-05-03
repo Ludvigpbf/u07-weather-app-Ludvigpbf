@@ -1,11 +1,17 @@
 .this-weather {
+
     @include flex-column;
     @include container;
-    width: 50vw;
+    width: 85vw;
     border-radius: 1rem;
     color: rgb(33, 33, 33);
     text-decoration: none;
     margin: 3rem;
+
+    @include desktop {
+        width: 50vw;
+
+    }
 
     .main-info {
         @include flex-row;
@@ -20,7 +26,11 @@
             h2 {
                 @include font-regular;
                 margin: 0rem;
-                font-size: 2rem;
+                font-size: 1rem;
+
+                @include desktop {
+                    font-size: 2rem;
+                }
 
             }
 
@@ -43,9 +53,14 @@
 
             #current-temp {
                 @include font-light;
-                font-size: 4rem;
+
                 margin: 0rem;
                 text-align: center;
+                font-size: 2rem;
+
+                @include desktop {
+                    font-size: 4rem;
+                }
             }
 
             .max-min-temp {
@@ -74,13 +89,23 @@
 
                 .description {
                     @include font-light;
-                    font-size: 0.8rem;
+                    font-size: 0.6rem;
                     margin: 0.5rem;
+
+                    @include desktop {
+                        font-size: 0.8rem;
+                    }
+
                 }
 
                 .data {
                     @include font-regular;
-                    font-size: 0.8rem;
+                    font-size: 0.6rem;
+
+                    @include desktop {
+                        font-size: 0.8rem;
+                    }
+
                 }
             }
 

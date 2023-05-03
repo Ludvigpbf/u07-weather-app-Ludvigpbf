@@ -1,4 +1,4 @@
-import { createContext } from "react";
+/* import { createContext } from "react";
 
 export type TemperatureUnit = "C" | "F";
 
@@ -13,3 +13,4 @@ const TemperatureContext = createContext<TemperatureContextType>({
 });
 
 export default TemperatureContext;
+ */

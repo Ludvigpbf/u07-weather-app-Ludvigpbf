@@ -82,7 +82,22 @@ form button .material-symbols-outlined:active {
   margin: 3rem;
   padding: 1rem;
   width: 80vw;
-  height: 50vh;
+}
+@media (min-width: 770px) {
+  .forecast {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(240, 248, 255, 0.418);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+    border-radius: 0.5rem;
+    border: none;
+    margin: 3rem;
+    padding: 1rem;
+    width: 80vw;
+    height: 60vh;
+  }
 }
 .forecast h1 {
   font-family: "Poppins", sans-serif;
@@ -93,8 +108,22 @@ form button .material-symbols-outlined:active {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
+}
+@media (min-width: 770px) {
+  .forecast .forecast-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 80vw;
+    height: 80%;
+  }
 }
 .forecast .forecast-preview .forecast-card {
+  width: 40vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,13 +132,14 @@ form button .material-symbols-outlined:active {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
   border-radius: 0.5rem;
   border: none;
-  width: 15vw;
-  height: 40vh;
-  margin: 0.5rem;
+  margin-top: 1rem;
 }
-.forecast .forecast-preview .forecast-card:hover {
-  background-color: rgba(220, 226, 232, 0.418);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+@media (min-width: 770px) {
+  .forecast .forecast-preview .forecast-card {
+    width: 15vw;
+    height: 100%;
+    margin: 0.5rem;
+  }
 }
 .forecast .forecast-preview .forecast-card .weather-details-link {
   display: flex;
@@ -146,10 +176,20 @@ form button .material-symbols-outlined:active {
 .forecast .forecast-preview .forecast-card .weather-details-link .forecast-descriptions h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   margin: 0;
   text-decoration: underline;
   width: 2rem;
+}
+@media (min-width: 770px) {
+  .forecast .forecast-preview .forecast-card .weather-details-link .forecast-descriptions h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.6rem;
+    margin: 0;
+    text-decoration: underline;
+    width: 2rem;
+  }
 }
 .forecast .forecast-preview .forecast-card .weather-details-link .forecast-info {
   display: flex;
@@ -186,11 +226,16 @@ form button .material-symbols-outlined:active {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
   border-radius: 0.5rem;
   border: none;
-  width: 50vw;
+  width: 85vw;
   border-radius: 1rem;
   color: rgb(33, 33, 33);
   text-decoration: none;
   margin: 3rem;
+}
+@media (min-width: 770px) {
+  .this-weather {
+    width: 50vw;
+  }
 }
 .this-weather .main-info {
   display: flex;
@@ -211,7 +256,12 @@ form button .material-symbols-outlined:active {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0rem;
-  font-size: 2rem;
+  font-size: 1rem;
+}
+@media (min-width: 770px) {
+  .this-weather .main-info .location-date h2 {
+    font-size: 2rem;
+  }
 }
 .this-weather .main-info .location-date h3 {
   font-family: "Poppins", sans-serif;
@@ -233,9 +283,14 @@ form button .material-symbols-outlined:active {
 .this-weather .main-info .main-temp #current-temp {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 4rem;
   margin: 0rem;
   text-align: center;
+  font-size: 2rem;
+}
+@media (min-width: 770px) {
+  .this-weather .main-info .main-temp #current-temp {
+    font-size: 4rem;
+  }
 }
 .this-weather .main-info .main-temp .max-min-temp {
   display: flex;
@@ -270,13 +325,23 @@ form button .material-symbols-outlined:active {
 .this-weather .extra-info .column .data-row .description {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   margin: 0.5rem;
+}
+@media (min-width: 770px) {
+  .this-weather .extra-info .column .data-row .description {
+    font-size: 0.8rem;
+  }
 }
 .this-weather .extra-info .column .data-row .data {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
+}
+@media (min-width: 770px) {
+  .this-weather .extra-info .column .data-row .data {
+    font-size: 0.8rem;
+  }
 }
 .this-weather .extra-info .column hr {
   margin: 0rem;
@@ -335,48 +400,71 @@ nav {
   top: 0;
 }
 nav .logo a {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  text-decoration: none;
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
-  font-size: 2rem;
-  color: white;
+  display: none;
 }
-nav .logo a:hover {
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.667);
-}
-nav .logo a img {
-  width: 2rem;
+@media (min-width: 770px) {
+  nav .logo a {
+    display: flex;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
+    font-size: 2rem;
+    color: white;
+  }
+  nav .logo a:hover {
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.667);
+  }
+  nav .logo a img {
+    width: 2rem;
+  }
 }
 nav .menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
+  display: none;
 }
-nav .menu .menu-link {
-  color: rgb(33, 33, 33);
-  text-decoration: none;
-  margin: 1rem;
-  padding: 0.3rem 1rem 0.3rem 1rem;
-  border-radius: 1rem;
-  background-image: linear-gradient(rgba(180, 232, 241, 0.5), rgba(180, 232, 241, 0.5));
-  background-repeat: no-repeat;
-  transition: background-size 0.3s, 0.3s;
-  background-size: 0% 110%;
-  background-position: 0% 50%;
-}
-nav .menu .menu-link:hover {
-  color: rgb(59, 58, 58);
-  background-size: 100% 100%;
+@media (min-width: 770px) {
+  nav .menu {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  nav .menu .menu-link {
+    color: rgb(33, 33, 33);
+    text-decoration: none;
+    margin: 1rem;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    border-radius: 1rem;
+    background-image: linear-gradient(rgba(180, 232, 241, 0.5), rgba(180, 232, 241, 0.5));
+    background-repeat: no-repeat;
+    transition: background-size 0.3s, 0.3s;
+    background-size: 0% 110%;
+    background-position: 0% 50%;
+  }
+  nav .menu .menu-link:hover {
+    color: rgb(59, 58, 58);
+    background-size: 100% 100%;
+  }
 }
 
 .world-weather-container {
+  width: 80vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+@media (min-width: 770px) {
+  .world-weather-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }
 .world-weather-container .world-weather-card {
   display: flex;
@@ -387,14 +475,15 @@ nav .menu .menu-link:hover {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
   border-radius: 0.5rem;
   border: none;
-  width: 10vw;
+  width: 25vw;
   height: 25vh;
   margin: 0.5rem;
   padding: 1rem;
 }
-.world-weather-container .world-weather-card:hover {
-  background-color: rgba(220, 226, 232, 0.418);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+@media (min-width: 770px) {
+  .world-weather-container .world-weather-card {
+    width: 10vw;
+  }
 }
 .world-weather-container .world-weather-card .weather-details-link {
   display: flex;
@@ -407,15 +496,20 @@ nav .menu .menu-link:hover {
   color: rgb(33, 33, 33);
 }
 .world-weather-container .world-weather-card .weather-details-link h2 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  margin: 0;
+  font-size: 1rem;
+}
+@media (min-width: 770px) {
+  .world-weather-container .world-weather-card .weather-details-link h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    margin: 0;
+  }
 }
 .world-weather-container .world-weather-card .weather-details-link h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   margin: 0;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 .world-weather-container .world-weather-card .weather-details-link img {
   background-color: rgba(109, 109, 109, 0.24);
@@ -425,7 +519,7 @@ nav .menu .menu-link:hover {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.5rem;
 }
 
 body {
@@ -444,35 +538,6 @@ body {
 }
 body #root {
   width: 100%;
-  /* nav {
-    @include flex-row;
-    margin: 1rem;
-    top: 0;
-
-
-    .logo {
-
-      h1 {
-        margin: 0;
-        @include font-bold;
-      }
-    }
-
-    a {
-      color: rgb(33, 33, 33);
-      text-decoration: none;
-      margin: 1rem;
-
-      &:hover {
-        color: rgb(59, 58, 58);
-        text-decoration: underline;
-        text-underline-offset: 0.3rem;
-
-      }
-
-
-    }
-  } */
 }
 body #root .main-content {
   display: flex;

@@ -6,7 +6,6 @@ export const useForecast = (apiUrl: string): { data: ForecastData } => {
     city: { name: "", country: "" },
     list: [],
   });
-
   useEffect(() => {
     const getForecastData = async () => {
       try {
@@ -23,7 +22,7 @@ export const useForecast = (apiUrl: string): { data: ForecastData } => {
       }
     };
     getForecastData();
-  }, [apiUrl]);
+  }, [apiUrl, setData]);
 
   return { data };
 };

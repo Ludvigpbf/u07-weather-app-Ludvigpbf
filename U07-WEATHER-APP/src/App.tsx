@@ -1,41 +1,68 @@
-import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
-import { Forecast } from "./components/Forecast/Forecast";
-import { WorldWeather } from "./components/WorldWeather/WorldWeather";
 import { Header } from "./components/Header/Header";
-
 import { useState } from "react";
+import {
+  AppProps,
+  ForecastData,
+  OutletProps,
+  WeatherData,
+  WorldWeatherProps,
+} from "./interfaces/interfaces";
+import { WeatherContext } from "./store/WeatherContext";
+import { useForecast } from "./hooks/useForecast";
+import { Outlet } from "./components/Outlet/Outlet";
+import { Routes, Route } from "react-router-dom";
+import { About } from "./components/About/About";
 
-function App() {
-  const [weatherData, setWeatherData] = useState({
-    city: "",
-    temperature: 0,
-    feelsLike: "",
-    weather: "",
-    icon: "",
-    humidity: "",
-    sunrise: "",
-    sunset: "",
-    windSpeed: "",
-    rain: "",
-    visibility: "0",
-  });
+interface AppOutletProps
+  extends AppProps,
+    OutletProps,
+    WeatherData,
+    ForecastData,
+    WorldWeatherProps {}
 
-  const [unit, setUnit] = useState("metric");
-  const calculateTemperature = (temperature: number) => {
-    return unit === "metric"
-      ? Math.round(temperature)
-      : Math.round((temperature * 9) / 5 + 32);
+function App(props: AppOutletProps) {
+  const { weatherData, setWeatherData } = props;
+  const [unit, setUnit] = useState<string>("metric");
+  const { data: forecastData } = useForecast("");
+  const toggleUnit = () => {
+    setUnit((unit) => (unit === "metric" ? "imperial" : "metric"));
   };
-
+  console.log(unit);
   return (
-    <>
-      <Header></Header>
-      <CurrentWeather /* weatherData={weatherData} unit={unit} */
-      ></CurrentWeather>
-      <Forecast></Forecast>
-
-      <WorldWeather></WorldWeather>
-    </>
+    <WeatherContext.Provider
+      value={{
+        weatherData,
+        setWeatherData,
+        unit,
+        setUnit,
+        forecastData,
+      }}
+    >
+      <Header
+        {...{
+          forecastData,
+          unit,
+          setUnit,
+          weatherData,
+          setWeatherData,
+          toggleUnit,
+        }}
+      />
+      <Outlet
+        {...{
+          forecastData,
+          unit,
+          setUnit,
+          weatherData,
+          setWeatherData,
+          toggleUnit,
+        }}
+      >
+        <Routes>
+          <Route path="about" element={<About></About>}></Route>
+        </Routes>
+      </Outlet>
+    </WeatherContext.Provider>
   );
 }
 

@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useLocation } from "../../hooks/useLocation";
 import { useForecast } from "../../hooks/useForecast";
-import { ForecastData } from "../../interfaces/interfaces";
+import { ForecastData, OutletProps } from "../../interfaces/interfaces";
 
-export const Forecast = () => {
+export const Forecast = ({
+  unit,
+  setUnit,
+  weatherData,
+  calculateTemperature,
+  setWeatherData,
+  forecastData,
+  toggleUnit,
+}: OutletProps) => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;
   const { lat, lng, status } = useLocation();
   const apiKey = import.meta.env.VITE_API_KEY;
-  const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
+  const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
   const { data } = useForecast(apiUrlForecast);
   console.log(data);
 
@@ -51,7 +58,7 @@ export const Forecast = () => {
       <div className="forecast-preview">
         {forecastDates.map((date) => (
           <div className="forecast-card" key={date}>
-            <Link to="/weather-details" className="weather-details-link">
+            <div className="weather-details-link">
               <h2>{data.city.name}</h2>
               <h3>{date}</h3>
               <div className="forecast-descriptions">
@@ -64,7 +71,7 @@ export const Forecast = () => {
                   <p>{forecast.time}</p>
                   <p>
                     {Math.round(forecast.main.temp)}
-                    °C
+                    {unit === "metric" ? "°C" : "°F"}
                   </p>
                   <img
                     src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
@@ -72,7 +79,7 @@ export const Forecast = () => {
                   />
                 </div>
               ))}
-            </Link>
+            </div>
           </div>
         ))}
       </div>

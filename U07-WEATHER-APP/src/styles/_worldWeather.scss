@@ -1,18 +1,28 @@
 .world-weather-container {
+    width: 80vw;
     @include flex-row;
+
+    flex-wrap: wrap;
+
+    @include desktop {
+        @include flex-row;
+        flex-wrap: nowrap
+    }
 
     .world-weather-card {
         @include flex-column;
         @include container;
-        width: 10vw;
+        width: 25vw;
         height: 25vh;
         margin: 0.5rem;
         padding: 1rem;
 
-        &:hover {
-            background-color: rgba(220, 226, 232, 0.418);
-            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+        @include desktop {
+            width: 10vw;
+
         }
+
+
 
         .weather-details-link {
             @include flex-column;
@@ -23,14 +33,18 @@
 
 
             h2 {
-                @include font-bold;
-                margin: 0;
+                font-size: 1rem;
+
+                @include desktop {
+                    @include font-bold;
+                    margin: 0;
+                }
             }
 
             h3 {
                 @include font-light;
                 margin: 0;
-                font-size: 0.7rem;
+                font-size: 1rem;
             }
 
             img {
@@ -41,7 +55,7 @@
             p {
                 @include font-light;
                 margin: 0;
-                font-size: 1rem;
+                font-size: 0.5rem;
             }
         }
     }
