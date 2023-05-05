@@ -29,7 +29,7 @@ export const WorldWeather = ({ unit }: WorldWeatherProps) => {
               </p>
               <p>{time}</p>
               <img
-                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                 alt={weather.weather[0].description}
               />
               <h3>
