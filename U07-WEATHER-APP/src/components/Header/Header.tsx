@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Search } from "../Search/Search";
 import { OutletProps } from "../../interfaces/interfaces";
+import logo from "../../images/mate.png";
 
 export const Header = ({
   unit,
@@ -15,7 +16,7 @@ export const Header = ({
     <nav>
       <div className="logo">
         <Link to="/" className="menu-link">
-          WeatherMate <img src="src/images/Group 13.png" alt="logo" />
+          WeatherMate <img src={logo} alt="logo" />
         </Link>
       </div>
       <Search
