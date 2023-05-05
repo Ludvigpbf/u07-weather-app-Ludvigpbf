@@ -15,9 +15,9 @@ export const Header = ({
   return (
     <nav>
       <div className="logo">
-        <Link to="/" className="menu-link">
+        <h1>
           WeatherMate <img src={logo} alt="logo" />
-        </Link>
+        </h1>
       </div>
       <Search
         unit={unit}
@@ -27,14 +27,14 @@ export const Header = ({
         forecastData={forecastData}
         toggleUnit={toggleUnit}
       ></Search>
-      <div className="menu">
+      {/* <div className="menu">
         <Link to="/" className="menu-link">
           Home
         </Link>
         <Link to="/about" className="menu-link">
           About
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 };

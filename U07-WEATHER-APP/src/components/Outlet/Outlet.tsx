@@ -1,4 +1,5 @@
 import { OutletProps } from "../../interfaces/interfaces";
+import { About } from "../About/About";
 import { CurrentWeather } from "../CurrentWeather/CurrentWeather";
 import { Forecast } from "../Forecast/Forecast";
 import { WorldWeather } from "../WorldWeather/WorldWeather";
@@ -30,6 +31,7 @@ export const Outlet = ({
         toggleUnit={toggleUnit}
       ></Forecast>
       <WorldWeather unit={unit}></WorldWeather>
+      <About></About>
     </>
   );
 };

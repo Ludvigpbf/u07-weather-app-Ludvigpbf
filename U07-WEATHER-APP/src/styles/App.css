@@ -399,26 +399,24 @@ nav {
   margin: 1rem;
   top: 0;
 }
-nav .logo a {
-  display: none;
+nav .logo {
+  margin: 1rem;
 }
-@media (min-width: 770px) {
-  nav .logo a {
-    display: flex;
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    text-decoration: none;
-    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
-    font-size: 2rem;
-    color: white;
-  }
-  nav .logo a:hover {
-    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.667);
-  }
-  nav .logo a img {
-    width: 3rem;
-  }
+nav .logo h1 {
+  display: flex;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.417);
+  font-size: 2rem;
+  color: white;
+}
+nav .logo h1:hover {
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.667);
+}
+nav .logo h1 img {
+  width: 3rem;
 }
 nav .menu {
   display: none;
@@ -520,6 +518,86 @@ nav .menu {
   font-weight: 300;
   margin: 0;
   font-size: 0.5rem;
+}
+
+.about {
+  margin: 2rem;
+}
+.about .about-card {
+  background-color: rgba(240, 248, 255, 0.418);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+  border-radius: 0.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+.about .about-card h1 {
+  text-decoration: underline;
+  margin: 0;
+  font-size: 1rem;
+}
+@media (min-width: 770px) {
+  .about .about-card h1 {
+    font-size: 1.2rem;
+  }
+}
+.about .about-card .p-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+@media (min-width: 770px) {
+  .about .about-card .p-card {
+    width: 40rem;
+  }
+}
+.about .about-card .p-card p {
+  margin: 0.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+@media (min-width: 770px) {
+  .about .about-card .p-card p {
+    font-size: 1rem;
+  }
+}
+.about .about-card .p-card p span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+.about .about-card .p-card p a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: black;
+  text-decoration: none;
+}
+.about .about-card .p-card p a:hover {
+  text-decoration: underline;
+}
+.about .about-card .p-card ul {
+  margin: 0.1rem;
+}
+.about .about-card .p-card ul li {
+  font-size: 0.8rem;
+}
+@media (min-width: 770px) {
+  .about .about-card .p-card ul li {
+    font-size: 1rem;
+  }
+}
+.about .about-card .p-card ul li a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: black;
+  text-decoration: none;
+}
+.about .about-card .p-card ul li a:hover {
+  text-decoration: underline;
 }
 
 body {

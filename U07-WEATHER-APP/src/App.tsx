@@ -57,11 +57,7 @@ function App(props: AppOutletProps) {
           setWeatherData,
           toggleUnit,
         }}
-      >
-        <Routes>
-          <Route path="about" element={<About></About>}></Route>
-        </Routes>
-      </Outlet>
+      ></Outlet>
     </WeatherContext.Provider>
   );
 }
