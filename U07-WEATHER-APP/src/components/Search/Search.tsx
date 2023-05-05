@@ -36,20 +36,6 @@ export const Search = ({
           .toString()
           .padStart(2, "0");
         const visibilityInKm = (data.visibility ?? 0) / 1000;
-        /* setWeatherData({
-          city: data.name,
-          temperature: Math.round(data.main.temp),
-          feelsLike: Math.round(data.main.feels_like).toString(),
-          weather: data.weather[0].description,
-          humidity: data.main.humidity.toString(),
-          sunrise: `${sunriseHours}:${sunriseMinutes}`,
-          sunset: `${sunsetHours}:${sunsetMinutes}`,
-          windSpeed: data.wind.speed.toString(),
-          rain: (data.rain?.["1h"] ?? 0).toString(),
-          visibility: visibilityInKm.toFixed(2),
-          icon: data.weather[0].icon,
-          wind: data.wind.speed,
-        }); */
       }
       setQuery("");
     } catch (error) {
@@ -58,11 +44,11 @@ export const Search = ({
     console.log(weatherData);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  /*  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     useSearchCity(event);
   };
-
+ */
   return (
     <>
       {/* <form onSubmit={handleSubmit}>
@@ -83,10 +69,6 @@ export const Search = ({
  */}
       <div className="toggle-button">
         <button onClick={toggleUnit}>{unit === "metric" ? "°F" : "°C"}</button>
-        {/* <p>
-          {weatherData &&
-            `${weatherData.main.temp} ${unit === "metric" ? "°C" : "°F"}`}
-        </p> */}
       </div>
     </>
   );
