@@ -60,8 +60,8 @@ export const CurrentWeather = ({
               </h2>
             )}
             <div className="max-min-temp">
-              {/*  <p>{weatherData.main.temp_min}°C</p>
-              <p>{weatherData.main.temp_max}°C</p> */}
+              <p>{weatherData.main.temp_min}°C</p>
+              <p>{weatherData.main.temp_max}°C</p>
             </div>
           </div>
         </div>
