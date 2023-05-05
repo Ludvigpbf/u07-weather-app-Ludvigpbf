@@ -65,7 +65,7 @@ export const Search = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="search"
@@ -80,7 +80,7 @@ export const Search = ({
           </button>
         </Link>
       </form>
-
+ */}
       <div className="toggle-button">
         <button onClick={toggleUnit}>{unit === "metric" ? "°F" : "°C"}</button>
         {/* <p>
