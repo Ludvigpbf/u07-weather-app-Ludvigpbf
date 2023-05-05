@@ -3,7 +3,6 @@ import { useLocation } from "../../hooks/useLocation";
 import { useWeather } from "../../hooks/useCurrentWeather";
 import { useForecast } from "../../hooks/useForecast";
 import { OutletProps, WeatherData } from "../../interfaces/interfaces";
-import { useEffect, useState } from "react";
 
 export const CurrentWeather = ({
   unit,
@@ -27,6 +26,13 @@ export const CurrentWeather = ({
   const todayForecastData = forecastData.data.list.filter(
     (forecast: { dt_txt: string }) => forecast.dt_txt.slice(0, 10) === today
   );
+  const convertWindSpeed = (windSpeed: number, currentUnit: string) => {
+    if (currentUnit === "metric") {
+      return `${windSpeed} m/s`;
+    } else {
+      return `${windSpeed} mph`;
+    }
+  };
 
   console.log(todayForecastData);
   const { time, day, date } = useCurrentTime();
@@ -103,7 +109,9 @@ export const CurrentWeather = ({
             <hr />
             <div className="data-row">
               <p className="description">Wind:</p>
-              <p className="data">{weatherData?.wind?.speed} m/s</p>
+              <p className="data">
+                {convertWindSpeed(weatherData?.wind?.speed, unit)}
+              </p>
             </div>
             <hr />
             <div className="data-row">

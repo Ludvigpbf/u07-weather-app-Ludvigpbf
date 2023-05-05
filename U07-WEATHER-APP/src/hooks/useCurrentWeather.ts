@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { WeatherData } from "../interfaces/interfaces";
+import { useLocation } from "./useLocation";
 
 export const useWeather = (apiUrl: string) => {
   const [weatherData, setWeatherData] = useState<WeatherData>(
@@ -10,6 +11,7 @@ export const useWeather = (apiUrl: string) => {
     const getWeatherData = async () => {
       try {
         const response = await fetch(apiUrl);
+        console.log(apiUrl);
         const data = await response.json();
         if (data.main) {
           const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString(
