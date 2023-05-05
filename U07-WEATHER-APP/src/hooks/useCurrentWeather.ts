@@ -68,7 +68,7 @@ export const useWeather = (apiUrl: string) => {
               sunrise: sunrise,
               sunset: sunset,
             },
-            name: "",
+            name: data.name,
             localTime: "",
           });
         }
