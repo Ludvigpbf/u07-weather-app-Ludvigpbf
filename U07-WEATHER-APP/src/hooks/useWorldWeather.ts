@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
-import { OutletProps, WeatherData } from "../interfaces/interfaces";
+import {
+  OutletProps,
+  WeatherData,
+  WorldWeatherProps,
+} from "../interfaces/interfaces";
 
-export const useWorldWeather = ({ unit }: OutletProps) => {
+export const useWorldWeather = ({ unit }: WorldWeatherProps) => {
   const apiUrlConfig = import.meta.env.VITE_API_URL;
   const apiKey = import.meta.env.VITE_API_KEY;
   const cities = [
