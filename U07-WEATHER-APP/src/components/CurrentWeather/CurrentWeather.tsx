@@ -3,7 +3,6 @@ import { useLocation } from "../../hooks/useLocation";
 import { useWeather } from "../../hooks/useCurrentWeather";
 import { useForecast } from "../../hooks/useForecast";
 import { OutletProps, WeatherData } from "../../interfaces/interfaces";
-import { useEffect, useState } from "react";
 
 export const CurrentWeather = ({
   unit,
