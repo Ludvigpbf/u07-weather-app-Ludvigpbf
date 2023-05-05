@@ -11,7 +11,6 @@ export const Header = ({
   forecastData,
   toggleUnit,
 }: OutletProps) => {
-  console.log(unit);
   return (
     <nav>
       <div className="logo">

@@ -17,7 +17,6 @@ export const Forecast = ({
   const apiKey = import.meta.env.VITE_API_KEY;
   const apiUrlForecast = `${apiUrlConfig}forecast?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
   const { data } = useForecast(apiUrlForecast);
-  console.log(data);
 
   const groupedData: { [key: string]: ForecastData["list"] } = {};
 
@@ -25,12 +24,11 @@ export const Forecast = ({
     const date = getCurrentDate(item.dt_txt.split(" ")[0]);
     const time = getCurrentTime(item.dt_txt.split(" ")[1]);
     const itemDate = new Date(item.dt_txt);
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
-    const nextFiveDays = new Date(tomorrow.getTime() + 8 * 24 * 60 * 60 * 1000);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const nextFourDays = new Date(today.getTime() + 4 * 24 * 60 * 60 * 1000);
 
-    if (itemDate >= tomorrow && itemDate <= nextFiveDays) {
+    if (itemDate >= today && itemDate <= nextFourDays) {
       if (!groupedData[date]) {
         groupedData[date] = [];
       }
@@ -54,7 +52,7 @@ export const Forecast = ({
 
   return (
     <div className="forecast">
-      <h1>Next 5 days</h1>
+      <h1>Forecast for {data.city.name}</h1>
       <div className="forecast-preview">
         {forecastDates.map((date) => (
           <div className="forecast-card" key={date}>

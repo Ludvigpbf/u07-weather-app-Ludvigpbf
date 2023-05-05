@@ -15,7 +15,7 @@ export const Search = ({
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const [query, setQuery] = useState("");
-  console.log(unit);
+
   const useSearchCity = async (evt: React.KeyboardEvent | React.FormEvent) => {
     evt.preventDefault();
     const apiUrlSearch = `${apiUrlConfig}weather?q=${query}&units=${unit}&appid=${apiKey}`;
@@ -41,7 +41,6 @@ export const Search = ({
     } catch (error) {
       console.log(error);
     }
-    console.log(weatherData);
   };
 
   /*  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

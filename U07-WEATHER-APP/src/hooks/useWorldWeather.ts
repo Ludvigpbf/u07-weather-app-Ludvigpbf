@@ -66,7 +66,7 @@ export const useWorldWeather = ({ unit }: WorldWeatherProps) => {
     };
     fetchData();
   }, [unit]);
-  console.log(unit);
+
   return weatherData;
 };
 
