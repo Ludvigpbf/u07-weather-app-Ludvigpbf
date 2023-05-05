@@ -1,0 +1,81 @@
+.about {
+    margin: 2rem;
+
+
+    .about-card {
+        @include container;
+        @include flex-column;
+        padding: 1rem;
+
+        h1 {
+            text-decoration: underline;
+            margin: 0;
+            font-size: 1rem;
+
+            @include desktop {
+
+                font-size: 1.2rem
+            }
+        }
+
+        .p-card {
+            @include flex-column;
+            padding: 1rem;
+
+            @include desktop {
+                width: 40rem;
+            }
+
+            p {
+                margin: 0.2rem;
+                text-align: center;
+                font-size: 0.8rem;
+
+                @include desktop {
+
+                    font-size: 1rem
+                }
+
+                span {
+                    @include font-bold;
+                }
+
+                a {
+                    @include font-bold;
+                    color: black;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                }
+            }
+
+            ul {
+                margin: 0.1rem;
+
+                li {
+                    font-size: 0.8rem;
+
+                    @include desktop {
+
+                        font-size: 1rem
+                    }
+
+                    a {
+                        @include font-bold;
+                        color: black;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+}
