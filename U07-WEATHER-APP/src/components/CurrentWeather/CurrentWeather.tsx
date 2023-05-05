@@ -49,7 +49,7 @@ export const CurrentWeather = ({
           <div className="main-temp">
             {weatherData?.weather && (
               <img
-                src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
+                src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
                 alt={weatherData.weather[0].description}
               />
             )}
