@@ -50,10 +50,6 @@ export const CurrentWeather = ({
                 {unit === "metric" ? "°C" : "°F"}
               </h2>
             )}
-            {/* <div className="max-min-temp">
-              <p>{weatherData.main.temp_min}°C</p>
-              <p>{weatherData.main.temp_max}°C</p>
-            </div> */}
           </div>
         </div>
         <div className="extra-info">
