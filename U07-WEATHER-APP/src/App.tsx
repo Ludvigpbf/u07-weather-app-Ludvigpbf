@@ -27,7 +27,7 @@ function App(props: AppOutletProps) {
   const toggleUnit = () => {
     setUnit((unit) => (unit === "metric" ? "imperial" : "metric"));
   };
-  console.log(unit);
+
   return (
     <WeatherContext.Provider
       value={{

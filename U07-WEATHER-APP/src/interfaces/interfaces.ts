@@ -87,7 +87,7 @@ export interface ForecastData {
       speed: number;
       deg: number;
       gust: number;
-    }[];
+    };
     visibility: number;
     pop: number;
     rain: {

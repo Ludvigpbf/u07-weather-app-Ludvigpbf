@@ -81,13 +81,12 @@ export const WeatherContext = createContext<OutletProps>({
         clouds: {
           all: 0,
         },
-        wind: [
-          {
-            speed: 0,
-            deg: 0,
-            gust: 0,
-          },
-        ],
+        wind: {
+          speed: 0,
+          deg: 0,
+          gust: 0,
+        },
+
         visibility: 0,
         pop: 0,
         rain: {
